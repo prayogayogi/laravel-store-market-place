@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class DashboardProductController extends Controller
+{
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    // Untuk pages.dashboard-products
+    public function index()
+    {
+        return view('pages.dashboard-products');
+    }
+
+    // Untuk pages.dashboard-products-details
+    public function details()
+    {
+        return view('pages.dashboard-products-details');
+    }
+
+    // Untuk pages.dashboard-products-details
+    public function create()
+    {
+        return view('pages.dashboard-products-create');
+    }
+}
