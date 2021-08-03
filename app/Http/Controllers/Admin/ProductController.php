@@ -22,13 +22,13 @@ class ProductController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = Product::with(['user', 'category']);
+            $query = Product::with(['user', 'category'])->withTrashed();
             return Datatables::of($query)->addColumn('action', function ($item) {
                 return '
                     <div calass="btn-group">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1" 
-                                    type="button" 
+                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1"
+                                    type="button"
                                     data-toggle="dropdown">
                                     Aksi
                             </button>
@@ -68,7 +68,7 @@ class ProductController extends Controller
         ]);
     }
 
-    /** 
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -77,7 +77,6 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->all();
-
         $data['slug'] = Str::slug($request->name);
         Product::create($data);
         return redirect()->route('product.index');
@@ -91,7 +90,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
@@ -103,8 +102,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         $item = Product::FindOrFail($id);
+        $users = User::all();
+        $categories = Category::all();
         return view('pages.admin.product.edit', [
-            'item' => $item
+            'item' => $item,
+            'users' => $users,
+            'categories' => $categories
         ]);
     }
 
@@ -120,11 +123,7 @@ class ProductController extends Controller
         $data = $request->all();
 
         $item = Product::FindOrFail($id);
-        if ($request->password) {
-            $data['password'] = bcrypt($request->password);
-        } else {
-            unset($data['password']);
-        }
+        $data['slug'] = Str::slug($request->name);
         $item->update($data);
         return redirect()->route('product.index');
     }

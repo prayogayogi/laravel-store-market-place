@@ -25,8 +25,8 @@ class CategoryController extends Controller
                 return '
                     <div calass="btn-group">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1" 
-                                    type="button" 
+                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1"
+                                    type="button"
                                     data-toggle="dropdown">
                                     Aksi
                             </button>
@@ -64,7 +64,7 @@ class CategoryController extends Controller
         return view('pages.admin.category.create');
     }
 
-    /** 
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -88,7 +88,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
