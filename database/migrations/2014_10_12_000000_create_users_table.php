@@ -20,16 +20,16 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            $table->longText('address_one');
-            $table->longText('address_two');
-            $table->integer('provinces_id');
-            $table->integer('regencies_id');
-            $table->integer('zip_code');
-            $table->string('country');
-            $table->string('phone_number');
-            $table->string('store_name');
-            $table->integer('categories_id');
-            $table->integer('store_status');
+            $table->longText('address_one')->nullable();
+            $table->longText('address_two')->nullable();
+            $table->integer('provinces_id')->nullable();
+            $table->integer('regencies_id')->nullable();
+            $table->integer('zip_code')->nullable();
+            $table->string('country')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('store_name')->nullable();
+            $table->integer('categories_id')->nullable();
+            $table->integer('store_status')->nullable();
 
             $table->softDeletes();
             $table->rememberToken();

@@ -25,10 +25,11 @@ Route::get('/dashboard/account', 'DashboardSettingController@account')->name('da
 
 // ->middleware(['auth','admin'])
 Route::prefix('admin')->namespace('Admin')->group(function () {
-  Route::get('/', 'DashboardController@index')->name('admin-dashboard');
-  Route::resource('category', 'CategoryController');
-  Route::resource('user', 'UserController');
-  Route::resource('product', 'ProductController');
+    Route::get('/', 'DashboardController@index')->name('admin-dashboard');
+    Route::resource('category', 'CategoryController');
+    Route::resource('user', 'UserController');
+    Route::resource('product', 'ProductController');
+    Route::resource('product-gallery', 'ProductGalleryController');
 });
 
 Auth::routes();
