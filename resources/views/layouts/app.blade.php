@@ -10,8 +10,8 @@
 
     {{-- Style --}}
     @stack('prepend-atyle')
-    @include('includes.style')
-    @stack('addon-style') 
+        @include('includes.style')
+    @stack('addon-style')
   </head>
 
   <body>
@@ -20,13 +20,14 @@
 
     {{-- Page Content --}}
     @yield('content')
-  
+
     {{-- Footer --}}
     @include('includes.footer')
+    {{-- End Footer --}}
 
     {{-- Script --}}
     @stack('prepend-script')
-    @include('includes.script')
+        @include('includes.script')
     @stack('addon-script')
 
   </body>
