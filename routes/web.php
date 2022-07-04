@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-detail');
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/success', 'CartController@success')->name('success');
@@ -22,7 +24,7 @@ Route::get('/dashboard/transactions/{id}', 'DashboardTransactionsController@deta
 Route::get('/dashboard/setting', 'DashboardSettingController@store')->name('dashboard-settings-store');
 Route::get('/dashboard/account', 'DashboardSettingController@account')->name('dashboard-settings-acount');
 
-// ->middleware(['auth','ADMIN'])
+// middleware(['auth','ADMIN'])
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'DashboardController@index')->name('admin-dashboard');
     Route::resource('category', 'CategoryController');

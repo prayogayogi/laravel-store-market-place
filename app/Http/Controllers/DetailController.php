@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -11,8 +12,11 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request, $slug)
     {
-        return view('pages.detail');
+        $product = Product::with(["galleries", "user"])->where("slug", $slug)->firstOrFail();
+        return view('pages.detail', [
+            "product" => $product
+        ]);
     }
 }

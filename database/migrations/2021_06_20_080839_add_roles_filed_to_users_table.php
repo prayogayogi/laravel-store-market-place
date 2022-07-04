@@ -14,7 +14,7 @@ class AddRolesFiledToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('roles')->default('USER'); // USER (Buyesr Dan Riseler) Admin(All Scces)
+            $table->string('roles')->default('USER'); // USER (Buyer Dan Seller) ADMIN (All Acces)
         });
     }
 

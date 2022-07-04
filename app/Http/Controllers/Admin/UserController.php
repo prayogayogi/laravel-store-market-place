@@ -25,8 +25,8 @@ class UserController extends Controller
                 return '
                     <div calass="btn-group">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1" 
-                                    type="button" 
+                            <button class="btn btn-primary dropdown-toggle mr-1 mb-1"
+                                    type="button"
                                     data-toggle="dropdown">
                                     Aksi
                             </button>
@@ -61,7 +61,7 @@ class UserController extends Controller
         return view('pages.admin.user.create');
     }
 
-    /** 
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,7 +69,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $data = $request->all();
+        $data = $request->input();
 
         $data['password'] = bcrypt($request->password);
 
@@ -85,7 +85,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
@@ -111,7 +111,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        $data = $request->all();
+        $data = $request->input();
 
         $item = User::FindOrFail($id);
         if ($request->password) {

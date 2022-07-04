@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductGallery extends Model
 {
+    protected $table = 'product_galleries';
     protected $fillable = [
         'photos', 'products_id'
     ];
