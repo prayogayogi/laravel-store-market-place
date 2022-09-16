@@ -21,14 +21,14 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="name">Name Category</label>
-                                            <input type="text" name="name" id="name" class="form-control @error("name") is-invalid @enderror" value="{{ old() }}">
+                                            <input type="text" name="name" id="name" class="form-control @error("name") is-invalid @enderror" value="{{ old("name") }}">
                                             @error('name')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="photos">Photos</label>
-                                            <input type="file" name="photo" id="photos" class="form-control @error("name") is-invalid @enderror" value="{{ old() }}">
+                                            <input type="file" name="photo" id="photos" class="form-control @error("name") is-invalid @enderror" value="{{ old("photo") }}">
                                             @error('photo')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
